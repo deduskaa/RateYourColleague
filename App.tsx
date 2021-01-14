@@ -1,17 +1,26 @@
+import 'react-native-gesture-handler';
 import React from 'react';
-import {SafeAreaView, StatusBar} from 'react-native';
-import {Content} from './components/Content';
-import {Header} from './components/Header';
+import {NavigationContainer} from '@react-navigation/native';
+import {MainScreen} from './screens/MainScreen';
+import {createStackNavigator} from '@react-navigation/stack';
+import {colleagues} from './colleagues';
+import {RateScreen} from './screens/RateScreen';
+
+const Stack = createStackNavigator();
 
 const App = () => {
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <Header />
-        <Content />
-      </SafeAreaView>
-    </>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={MainScreen} />
+        {colleagues.map((colleague) => (
+          <Stack.Screen
+            name={colleague.title}
+            children={() => <RateScreen colleague={colleague} />}
+          />
+        ))}
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 

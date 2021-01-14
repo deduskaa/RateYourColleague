@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, FlatList} from 'react-native';
+import {Text, View} from 'react-native';
 import {theme} from '../theme';
 import {Colleague} from '../types';
 import {ColleagueItem} from './ColleagueItem';
@@ -11,16 +11,17 @@ interface Props {
 export const ColleagueList = ({colleagues}: Props) => {
   return (
     <View>
-      <Text
-        style={{textTransform: 'capitalize', color: theme.colors.gray[700]}}>
+      <Text style={{textTransform: 'uppercase', color: theme.colors.gray[700]}}>
         Colleagues
       </Text>
-      <FlatList
-        data={colleagues}
-        renderItem={({item, index}) => (
-          <ColleagueItem {...item} index={index} />
-        )}
-      />
+
+      {colleagues.map((colleague, index) => (
+        <ColleagueItem
+          key={`${colleague.title}_${index}`}
+          index={index}
+          {...colleague}
+        />
+      ))}
     </View>
   );
 };

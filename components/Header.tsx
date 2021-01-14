@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import {theme} from '../theme';
 
 export const Header = () => (
   <View style={styles.wrapper}>
@@ -13,7 +14,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     padding: 20,
-    borderBottomColor: 'lightgrey',
+    borderBottomColor: theme.colors.gray[300],
     borderBottomWidth: 1,
   },
   headerText: {
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 100,
-    backgroundColor: 'pink',
+    backgroundColor: theme.colors.indigo[800],
     marginRight: 16,
   },
 });

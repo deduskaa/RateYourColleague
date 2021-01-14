@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 import {theme} from '../theme';
+import {Ball} from './Ball';
 
 export const Note = () => {
   const [visible, setVisible] = useState(true);
@@ -12,7 +13,7 @@ export const Note = () => {
   return visible ? (
     <View style={styles.note}>
       <View style={styles.content}>
-        <View style={styles.ball} />
+        <Ball size={80} color={theme.colors.yellow[200]} />
         <Text style={styles.description}>
           <Text style={styles.title}>Welcome user</Text>
           {'\n'}
@@ -40,13 +41,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginBottom: 16,
   },
-  ball: {
-    backgroundColor: theme.colors.yellow[200],
-    borderRadius: 100,
-    height: 80,
-    marginRight: 20,
-    width: 80,
-  },
   title: {
     fontSize: 18,
     fontWeight: '700',
@@ -55,6 +49,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     flexShrink: 1,
     flexWrap: 'wrap',
+    marginLeft: 20,
   },
   button: {
     backgroundColor: theme.colors.indigo[800],
