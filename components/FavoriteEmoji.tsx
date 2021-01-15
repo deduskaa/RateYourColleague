@@ -21,13 +21,14 @@ export const FavoriteEmoji: FC<Props> = ({emojis}) => {
           <Pressable
             key={i}
             onPress={() => selectEmoji(i)}
+            accessibilityLabel={`Select ${emoji} emoji as favorite emoji`}
             style={[
               styles.emojiWrapper,
               selectedEmojiIndex === i
                 ? {backgroundColor: theme.colors.indigo[200]}
                 : null,
             ]}>
-            <Text style={{fontSize: 42}}>{emoji}</Text>
+            <Text style={styles.emoji}>{emoji}</Text>
           </Pressable>
         ))}
       </View>
@@ -53,5 +54,8 @@ const styles = StyleSheet.create({
     marginBottom: 24,
     marginTop: 8,
     padding: 24,
+  },
+  emoji: {
+    fontSize: 42,
   },
 });

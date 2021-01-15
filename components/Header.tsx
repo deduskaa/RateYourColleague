@@ -1,13 +1,24 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {Pressable, StyleSheet, Text, View} from 'react-native';
 import {theme} from '../theme';
 
-export const Header = () => (
-  <View style={styles.wrapper}>
-    <View style={styles.profileIcon} />
-    <Text style={styles.headerText}>Rate Your Colleague</Text>
-  </View>
-);
+export const Header = () => {
+  const navigation = useNavigation();
+  const navigateToProfile = () => navigation.navigate('EditProfile');
+  return (
+    <View style={styles.wrapper}>
+      <Pressable
+        onPress={navigateToProfile}
+        style={styles.profileIcon}
+        accessible={true}
+        accessibilityLabel="Go to own profile"
+        accessibilityHint="Navigates to own profile page"
+      />
+      <Text style={styles.headerText}>Rate Your Colleague</Text>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   wrapper: {

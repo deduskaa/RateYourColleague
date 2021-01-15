@@ -12,7 +12,11 @@ export const ColleagueItem = ({title, description, rating, index}: Props) => {
   const navigate = () => navigation.navigate(title);
 
   return (
-    <Pressable onPress={navigate} style={styles.item}>
+    <Pressable
+      onPress={navigate}
+      style={styles.item}
+      accessible={true}
+      accessibilityHint={`Go to ${title} profile page`}>
       <Ball
         color={index % 2 ? theme.colors.indigo[800] : theme.colors.yellow[200]}
         size={60}

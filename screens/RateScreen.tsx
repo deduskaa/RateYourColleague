@@ -5,7 +5,7 @@ import {Ball} from '../components/Ball';
 import {Button} from '../components/Button';
 import {FavoriteColor} from '../components/FavoriteColor';
 import {FavoriteEmoji} from '../components/FavoriteEmoji';
-import {theme} from '../theme';
+import {defaultStyles, theme} from '../theme';
 import {Colleague} from '../types';
 
 interface Props {
@@ -15,7 +15,7 @@ interface Props {
 export const RateScreen: FC<Props> = ({colleague}) => {
   const sendFeedback = () => console.log('helllo');
   return (
-    <ScrollView style={{padding: 24}}>
+    <ScrollView style={defaultStyles.contentPadding}>
       <View style={styles.header}>
         <Ball size={90} color={theme.colors.indigo[800]} />
         <View style={{flex: 1, marginLeft: 20}}>

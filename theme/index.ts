@@ -41,3 +41,7 @@ export const theme = {
     borderRadius: 10,
   },
 };
+
+export const defaultStyles = {
+  contentPadding: {padding: 24, paddingTop: 0},
+};

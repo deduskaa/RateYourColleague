@@ -8,20 +8,20 @@ export const colleagues: Colleague[] = [
     rating: 5,
   },
   {
-    emojis: [],
+    emojis: ['💰', '💰', '💰'],
     title: 'Scrooge McDuck',
     description:
       'Scrooge is an elderly Scottish anthropomorphic Pekin duck with a yellow-orange bill, legs, and feet.',
     rating: 5,
   },
   {
-    emojis: [],
+    emojis: ['🍀', '🎀', '🍀'],
     title: 'Gladstone Gander',
     description: `Gladstone's good luck defies probability and provides him with anything that would be to his benefit or enjoyment.`,
     rating: 5,
   },
   {
-    emojis: [],
+    emojis: ['🎀', '💞', '🌺'],
     title: 'Daisy Duck',
     description:
       'Daisy is attracted to Donald and devoted to him in the same way he is often devoted to her',
@@ -31,9 +31,17 @@ export const colleagues: Colleague[] = [
   {emojis: [], title: 'Dewey Duck', description: 'Desc', rating: 5},
   {emojis: [], title: 'Louie Duck', description: 'Desc', rating: 5},
   {
-    emojis: [],
+    emojis: ['💡', '⚙️', '📟'],
     title: 'Gyro Gearloose ',
     description: `Gyro is Duckburg's most famous inventor, even though his inventions don't always work the way he wants them to.`,
     rating: 5,
   },
+  {emojis: [], title: 'Grandma Duck', description: 'Desc', rating: 5},
+  {
+    emojis: [],
+    title: 'Gus Goose',
+    description: `Gus Goose is a lazy and extremely gluttonous goose, who is Donald Duck's country cousin`,
+    rating: 5,
+  },
+  {emojis: [], title: 'John D. Rockerduck', description: 'Desc', rating: 5},
 ];

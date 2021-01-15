@@ -1,5 +1,5 @@
 import React from 'react';
-import {SectionList, StyleSheet, Text} from 'react-native';
+import {SectionList, SectionListData, StyleSheet, Text} from 'react-native';
 import {colleagues} from '../colleagues';
 import {theme} from '../theme';
 import {Colleague} from '../types';
@@ -10,15 +10,21 @@ export const Content = () => {
   const renderItem = ({item, index}: {item: Colleague; index: number}) => (
     <ColleagueItem key={`${item.title}_${index}`} index={index} {...item} />
   );
+
+  const renderSectionHeader = ({
+    section,
+  }: {
+    section: SectionListData<Colleague, {title: string}>;
+  }) => <Text style={styles.header}>{section.title}</Text>;
+
   return (
     <SectionList
-      keyExtractor={(item, index) => `${item}_${index}`}
-      sections={[{title: 'Colleagues', data: colleagues}]}
-      renderItem={renderItem}
       ListHeaderComponent={Note}
-      renderSectionHeader={({section: {title}}) => (
-        <Text style={styles.header}>{title}</Text>
-      )}
+      keyExtractor={(item, index) => `${item}_${index}`}
+      renderItem={renderItem}
+      renderSectionHeader={renderSectionHeader}
+      sections={[{title: 'Colleagues', data: colleagues}]}
+      stickySectionHeadersEnabled={false}
     />
   );
 };

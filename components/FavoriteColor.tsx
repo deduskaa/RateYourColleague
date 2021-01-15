@@ -14,6 +14,7 @@ export const FavoriteColor = () => {
       <View style={styles.options}>
         {options.map((option, i) => (
           <Pressable
+            accessibilityRole="combobox"
             key={option}
             onPress={() => selectOption(i)}
             style={styles.radioSelection}>
