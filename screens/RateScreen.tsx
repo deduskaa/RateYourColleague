@@ -1,7 +1,10 @@
-import React, {FC, useState} from 'react';
-import {Button, Pressable, StyleSheet, Text, View} from 'react-native';
+import React, {FC} from 'react';
+import {StyleSheet, Text, View} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import {Ball} from '../components/Ball';
+import {Button} from '../components/Button';
+import {FavoriteColor} from '../components/FavoriteColor';
+import {FavoriteEmoji} from '../components/FavoriteEmoji';
 import {theme} from '../theme';
 import {Colleague} from '../types';
 
@@ -10,12 +13,7 @@ interface Props {
 }
 
 export const RateScreen: FC<Props> = ({colleague}) => {
-  const [selectedEmojiIndex, setSelectedEmojiIndex] = useState(0);
-
-  const selectEmoji = (i: number) => {
-    setSelectedEmojiIndex(i);
-  };
-
+  const sendFeedback = () => console.log('helllo');
   return (
     <ScrollView style={{padding: 24}}>
       <View style={styles.header}>
@@ -26,24 +24,9 @@ export const RateScreen: FC<Props> = ({colleague}) => {
         </View>
       </View>
 
-      <View>
-        <Text style={styles.sectionHeading}>Favourite Emoji</Text>
-        <View style={styles.emojis}>
-          {colleague.emojis.map((emoji, i) => (
-            <Pressable
-              key={i}
-              onPress={() => selectEmoji(i)}
-              style={[
-                styles.emojiWrapper,
-                selectedEmojiIndex === i
-                  ? {backgroundColor: theme.colors.indigo[200]}
-                  : null,
-              ]}>
-              <Text style={{fontSize: 42}}>{emoji}</Text>
-            </Pressable>
-          ))}
-        </View>
-      </View>
+      <FavoriteEmoji emojis={colleague.emojis} />
+      <FavoriteColor />
+      <Button onPress={sendFeedback}>Send Feedback</Button>
     </ScrollView>
   );
 };
@@ -68,17 +51,5 @@ const styles = StyleSheet.create({
     color: theme.colors.gray[600],
     fontSize: 16,
     textTransform: 'uppercase',
-  },
-  emojiWrapper: {
-    borderRadius: 100,
-    padding: 24,
-  },
-  emojis: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    padding: 24,
-    backgroundColor: 'white',
-    borderRadius: theme.default.borderRadius,
-    marginVertical: 24,
   },
 });

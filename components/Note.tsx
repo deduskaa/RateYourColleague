@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import {Pressable, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {theme} from '../theme';
 import {Ball} from './Ball';
+import {Button} from './Button';
 
 export const Note = () => {
   const [visible, setVisible] = useState(true);
@@ -20,9 +21,7 @@ export const Note = () => {
           Learn the basics of Rate Your Colleague and discover the fun.
         </Text>
       </View>
-      <Pressable style={styles.button} onPress={dismissNote}>
-        <Text style={styles.buttonText}>Dismiss</Text>
-      </Pressable>
+      <Button onPress={dismissNote}>Dismiss</Button>
     </View>
   ) : null;
 };

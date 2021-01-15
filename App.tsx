@@ -13,8 +13,9 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={MainScreen} />
-        {colleagues.map((colleague) => (
+        {colleagues.map((colleague, i) => (
           <Stack.Screen
+            key={i}
             name={colleague.title}
             children={() => <RateScreen colleague={colleague} />}
           />
